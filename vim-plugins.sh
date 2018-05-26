@@ -74,9 +74,6 @@ plugin https://github.com/rhysd/github-complete.vim "start"
 
 #-- colorscheme
 plugin https://github.com/sickill/vim-monokai "start"
-#plugin https://github.com/crusoexia/vim-monokai "start"
-plugin https://github.com/sheerun/vim-wombat-scheme "start"
-plugin https://github.com/HenryNewcomer/vim-theme-papaya "start"
 
 # -- managing snippets
 plugin https://github.com/tomtom/tlib_vim.git "start"

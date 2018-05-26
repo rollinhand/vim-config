@@ -36,3 +36,12 @@ let g:airline_theme='molokai'
 
 """ Disable folding by startup
 set nofoldenable
+
+""" Emulate system clipboard
+if has('win32')
+  :vnoremap <C-c> "+y
+  :inoremap <C-v> <ESC>"+pa
+elseif has('macunix')
+  :vnoremap <D-c> "+y
+  :inoremap <D-v> <ESC>"+pa
+endif
