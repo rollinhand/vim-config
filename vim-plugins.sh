@@ -3,9 +3,6 @@
 plug_dir=~/.vim/pack/plugins
 snippets_dir=~/.vim/snippets
 
-github_raw_url=https://raw.githubusercontent.com/rollinhand/vim-snippets/master/vim/snippets
-
-
 # Initializes Vim plugin directory if it does not exists.
 #
 # No arguments.
@@ -43,17 +40,19 @@ function plugin() {
     cd "$plug_dir" || exit
 }
 
-function snippet() {
-    repo_url=$github_raw_url/$1
-    filename=$1
-    if [ ! -d "$snippets_dir" ]; then
+function snippets() {
+    repo_url=$1
+    if [ ! -d "$snippet_dir" ]; then
         echo "creating snippet directory"
-        mkdir -p "$snippets_dir"
+        mkdir -p "$snippet_dir"
+        echo "--> installing snippets from $repo_url"
+        git clone -q "$repo_url"
+    else
+        result=$(git pull --force)
+        echo "--> updating snippets from $repo_url"
     fi;
 
-    cd "$snippets_dir" || exit
-    echo "--> updating snippets from $repo_url"
-    curl -s -o $filename -O $repo_url
+
 }
 
 echo "loading plugins for Vim 8"
@@ -75,6 +74,9 @@ plugin https://github.com/rhysd/github-complete.vim "start"
 
 #-- colorscheme
 plugin https://github.com/sickill/vim-monokai "start"
+#plugin https://github.com/crusoexia/vim-monokai "start"
+plugin https://github.com/sheerun/vim-wombat-scheme "start"
+plugin https://github.com/HenryNewcomer/vim-theme-papaya "start"
 
 # -- managing snippets
 plugin https://github.com/tomtom/tlib_vim.git "start"
@@ -84,7 +86,4 @@ plugin https://github.com/garbas/vim-snipmate.git "start"
 # -- must be always installed after nerdtree and vim-airline
 # additional fonts needed to work
 #plugin https://github.com/ryanoasis/vim-devicons "start"   # no further options
-
-snippet actionscript.snippets
-
 echo "loading finished."

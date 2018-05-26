@@ -1,10 +1,10 @@
-"-------------------------------------------------------------------------------- 
+"-------------------------------------------------------------------------- 
 " Configuration file for Vim
 " Plugins are managed by Vundle
 "
 " Author:  Björn Berg, rollin.hand@gmx.de
 " Version: 1.0
-"-------------------------------------------------------------------------------- 
+"-------------------------------------------------------------------------- 
 
 filetype plugin indent on
 syntax enable
@@ -26,6 +26,10 @@ set expandtab
 set laststatus=2
 
 " Define colorscheme and plugins
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 set background=dark
 colorscheme monokai
 let g:airline_theme='molokai'
