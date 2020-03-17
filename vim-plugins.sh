@@ -71,6 +71,7 @@ plugin https://github.com/plasticboy/vim-markdown.git "start"
 
 # -- autocompletion tools
 plugin https://github.com/rhysd/github-complete.vim "start"
+plugin https://github.com/artur-shaik/vim-javacomplete2 "start"
 
 #-- colorscheme
 plugin https://github.com/sickill/vim-monokai "start"
